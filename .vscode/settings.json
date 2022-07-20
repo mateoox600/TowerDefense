@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.sc": "plaintext",
+        "cmath": "cpp",
+        "vector": "cpp"
+    }
+}
