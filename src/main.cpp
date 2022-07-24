@@ -2,8 +2,8 @@
 #include "raylib-cpp.hpp"
 #include "GameConstants.hpp"
 #include "PathManager.hpp"
-#include "Enemy.hpp"
-#include "enemies/Weak.hpp"
+#include "EnemyManager.hpp"
+#include "tower/BasicTower.hpp"
 #include <vector>
 #include <math.h>
 
@@ -19,63 +19,38 @@ int main(int argc, char *argv[]) {
 
     window.SetTargetFPS(60);
 
-    const raylib::Vector2 start(2, 0);
-    const std::vector<raylib::Vector2> path{
-        raylib::Vector2( 0, 1 ),
-        raylib::Vector2( 0, 1 ),
-        raylib::Vector2( 1, 0 ),
-        raylib::Vector2( 1, 0 ),
-        raylib::Vector2( 1, 0 ),
-        raylib::Vector2( 1, 0 ),
-        raylib::Vector2( 1, 0 ),
-        raylib::Vector2( 0, -1 ),
-        raylib::Vector2( 1, 0 ),
-        raylib::Vector2( 1, 0 ),
-        raylib::Vector2( 1, 0 ),
-        raylib::Vector2( 0, 1 ),
-        raylib::Vector2( 0, 1 ),
-        raylib::Vector2( 0, 1 ),
-        raylib::Vector2( 0, 1 ),
-        raylib::Vector2( 0, 1 ),
-        raylib::Vector2( 0, 1 ),
-        raylib::Vector2( -1, 0 ),
-        raylib::Vector2( -1, 0 ),
-        raylib::Vector2( -1, 0 ),
-    };
-
     PathManager pathManager(start, path);
 
-    std::vector<Enemy> enemies{ };
+    EnemyManager enemyManager(&pathManager);
 
-    float spawnAccumulator = 5.0f;
+    BasicTower tower(&pathManager, &enemyManager, raylib::Vector2(8, 0));
+    BasicTower tower1(&pathManager, &enemyManager, raylib::Vector2(3, 3));
 
     while (!window.ShouldClose()) {
         // Update
         //----------------------------------------------------------------------------------
 
-        for (size_t i = enemies.size(); i-- != 0;) {
-            if(enemies[i].update()) {
-                enemies.erase(enemies.begin() + i);
-            }
-        }
-
-        spawnAccumulator += GetFrameTime();
-
-        if(spawnAccumulator >= 2.5f) {
-            spawnAccumulator = 0.0f;
-            enemies.push_back(Weak(0.0f, &pathManager));
-        }
+        enemyManager.update();
+        tower.update();
+        tower1.update();
 
         // Draw
         //----------------------------------------------------------------------------------
         BeginDrawing();
             window.ClearBackground(WHITE);
 
-            pathManager.draw();
-
-            for (size_t i = 0; i < enemies.size(); i++) {
-                enemies[i].draw();
+            for (size_t i = 0; i < mapSize.x + 1; i++) {
+                DrawLine(cellSize * i, 0, cellSize * i, screenHeight, BLACK);
             }
+            for (size_t j = 0; j < mapSize.y + 1; j++) {
+                DrawLine(0, cellSize * j, screenWidth, cellSize * j, BLACK);
+            }
+            
+
+            pathManager.draw();
+            enemyManager.draw();
+            tower.draw();
+            tower1.draw();
 
         EndDrawing();
     }

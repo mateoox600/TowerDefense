@@ -1,0 +1,307 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
+# GNU Make 4.3
+# Built for Windows32
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Sun Jul 24 12:06:56 2022
+
+# Variables
+
+# environment
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+# environment
+SYSTEMDRIVE = C:
+# environment
+JAVA_HOME = F:\JDK17
+# environment
+LC_ALL = C
+# environment
+VBOX_HWVIRTEX_IGNORE_SVM_IN_USE = 1
+# environment
+USERPROFILE = C:\Users\MATHYS
+# environment
+EMSDK_PYTHON = C:\Users\MATHYS\Documents\Dev\html5Tools\emsdk\python\3.9.2-1_64bit\python.exe
+# environment
+VBOX_MSI_INSTALL_PATH = C:\Program Files\Oracle\VirtualBox\
+# environment
+LOCALAPPDATA = C:\Users\MATHYS\AppData\Local
+# environment
+VSCODE_CWD = C:\Users\MATHYS\AppData\Local\Programs\Microsoft VS Code
+# environment
+CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
+# environment
+SYSTEMROOT = C:\WINDOWS
+# environment
+PROCESSOR_LEVEL = 23
+# environment
+PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+# default
+MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
+# environment
+GOPATH = C:\Users\MATHYS\go
+# automatic
+@D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
+# environment
+DOKANLIBRARY1_LIBRARYPATH_X64 = C:\Program Files\Dokan\Dokan Library-1.4.0\lib\
+# environment
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_6276_LTUIOZOUPQTVUGJT
+# environment
+FPS_BROWSER_USER_PROFILE_STRING = Default
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# automatic
+%D = $(patsubst %/,%,$(patsubst %\,%,$(dir $%)))
+# automatic
+^D = $(patsubst %/,%,$(patsubst %\,%,$(dir $^)))
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_CODE_CACHE_PATH = C:\Users\MATHYS\AppData\Roaming\Code\CachedData\3b889b090b5ad5793f524b5d1d39fda662b96a2a
+# environment
+LANG = C
+# default
+.LOADED := 
+# environment
+TMP = C:\Users\MATHYS\AppData\Local\Temp
+# default
+.INCLUDE_DIRS = .
+# environment
+PROCESSOR_ARCHITEW6432 = AMD64
+# makefile
+MAKEFLAGS = pqrR
+# environment
+ONEDRIVE = C:\Users\MATHYS\OneDrive
+# makefile
+CURDIR := c:/Users/MATHYS/Documents/Dev/CPP/skaribu-tower-defense
+# environment
+DOKANLIBRARY1_LIBRARYPATH_X86 = C:\Program Files\Dokan\Dokan Library-1.4.0\x86\lib\
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# automatic
+*D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
+# environment
+PROGRAMFILES = C:\Program Files (x86)
+# environment
+MFLAGS = -pqrR
+# default
+.SHELLFLAGS := -c
+# environment
+COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# automatic
++D = $(patsubst %/,%,$(patsubst %\,%,$(dir $+)))
+# makefile
+MAKEFILE_LIST := 
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_PID = 6276
+# automatic
+?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
+# environment
+NEKO_INSTPATH = C:\HaxeToolkit\neko
+# automatic
+*F = $(notdir $*)
+# environment
+EM_CONFIG = C:\Users\MATHYS\Documents\Dev\html5Tools\emsdk\.emscripten
+# automatic
+<D = $(patsubst %/,%,$(patsubst %\,%,$(dir $<)))
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{},"_languagePackSupport":true}
+# environment
+HAXEPATH = C:\HaxeToolkit\haxe
+# environment
+ONEDRIVECONSUMER = C:\Users\MATHYS\OneDrive
+# default
+MAKE_HOST := Windows32
+# environment
+PROGRAMDATA = C:\ProgramData
+# default
+SHELL := sh.exe
+# environment
+HOMEPATH = \Users\MATHYS
+# default
+MAKECMDGOALS := all
+# environment
+DRIVERDATA = C:\Windows\System32\Drivers\DriverData
+# environment
+COMSPEC = C:\WINDOWS\system32\cmd.exe
+# environment
+WINDIR = C:\WINDOWS
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = F:\JDK17\bin;C:\ProgramData\chocolatey\bin;C:\Python310\Scripts\;C:\Python310\;G:\bin\jdk-19\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Python39\Scripts\;C:\Program Files\Python39\;C:\Program Files\Python310\Scripts\;C:\Program Files\Python310\;C:\Program Files\ImageMagick-7.1.0-Q16-HDRI;C:\Program Files\Eclipse Foundation\jdk-16.0.2.7-hotspot\bin;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Gource\cmd;C:\Program Files\Git\cmd;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\ProgramData\MATHYS\atom\bin;C:\Users\MATHYS\AppData\Local\atom\bin;C:\Users\MATHYS\AppData\Local\GitHubDesktop\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;H:\PythonConsole;C:\Users\MATHYS\.cargo\bin;C:\Users\MATHYS\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\MATHYS\AppData\Roaming\npm;C:\Users\MATHYS\.deno\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\heroku\bin;C:\Program Files\dotnet\;C:\MinGW\bin;C:\Gradle\gradle-6.7\bin;F:\pypy3.7-v7.3.4-win64;C:\Program Files\CMake\bin;C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin;C:\Users\MATHYS\AppData\Local\Microsoft\WindowsApps;C:\HaxeToolkit\neko;G:\bin\apache-ant-1.10.12\bin;C:\Program Files (x86)\nodejs;C:\Program Files\Java\jdk1.8.0_231\bin;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.2\bin;C:\Users\MATHYS\Documents\Dev\TypeScript JavaScript\MPPM;F:\NodeJs\;C:\Program Files\Neovim\/bin;C:\Users\MATHYS\.nimble\bin;F:\NASM;F:\qemu;C:\Users\MATHYS\Documents\Dev\V\v\.bin;C:\Ruby30-x64\bin;C:\Users\MATHYS\Documents\Dev\html5Tools\emsdk;C:\Users\MATHYS\Documents\Dev\html5Tools\emsdk\node\14.18.2_64bit\bin;C:\Users\MATHYS\Documents\Dev\html5Tools\emsdk\upstream\emscripten;C:\Users\MATHYS\.cargo\bin;C:\Users\MATHYS\AppData\Local\Microsoft\WindowsApps;C:\ProgramData\MATHYS\atom\bin;C:\Users\MATHYS\AppData\Local\GitHubDesktop\bin;C:\Users\MATHYS\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\MATHYS\AppData\Local\Programs\Python\Python38-32\python.exe;C:\Users\MATHYS\.deno\bin;C:\Program Files\heroku\bin;C:\Users\MATHYS\.dotnet\tools;C:\Users\MATHYS\go\bin;C:\Users\MATHYS\AppData\Local\atom\bin;C:\tools\dart-sdk\bin;C:\Users\MATHYS\AppData\Roaming\Pub\Cache\bin;F:\PyCharm Community Edition 2022.1\bin;;C:\Users\MATHYS\AppData\Roaming\npm;C:\Users\MATHYS\.nimble\bin
+# environment
+COMPUTERNAME = PC-FIXE-MATEOOX
+# environment
+EMSDK_NODE = C:\Users\MATHYS\Documents\Dev\html5Tools\emsdk\node\14.18.2_64bit\bin\node.exe
+# default
+MAKEFILES := 
+# automatic
+^F = $(notdir $^)
+# environment
+PROMPT = $P$G
+# environment
+CHOCOLATEYLASTPATHUPDATE = 132909100624909618
+# environment
+LOGONSERVER = \\PC-FIXE-MATEOOX
+# environment
+USERNAME = MATHYS
+# environment
+COMMONPROGRAMFILES = C:\Program Files (x86)\Common Files
+# automatic
+?F = $(notdir $?)
+# environment
+PROGRAMW6432 = C:\Program Files
+# environment
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW;.RB;.RBW
+# automatic
++F = $(notdir $+)
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+USERDOMAIN = PC-FIXE-MATEOOX
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+OS = Windows_NT
+# environment
+__COMPAT_LAYER = DetectorsAppHealth
+# environment
+EMSDK = C:/Users/MATHYS/Documents/Dev/html5Tools/emsdk
+# environment
+DOKANLIBRARY1 = C:\Program Files\Dokan\Dokan Library-1.4.0\
+# makefile
+.DEFAULT_GOAL := 
+# default
+MAKE_VERSION := 4.3
+# environment
+PROGRAMFILES(X86) = C:\Program Files (x86)
+# environment
+USERDOMAIN_ROAMINGPROFILE = PC-FIXE-MATEOOX
+# environment
+NUMBER_OF_PROCESSORS = 8
+# environment
+PUBLIC = C:\Users\Public
+# environment
+APPDATA = C:\Users\MATHYS\AppData\Roaming
+# environment
+HOMEDRIVE = C:
+# environment
+PROCESSOR_ARCHITECTURE = x86
+# environment
+PYCHARM COMMUNITY EDITION = F:\PyCharm Community Edition 2022.1\bin;
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+TEMP = C:\Users\MATHYS\AppData\Local\Temp
+# environment
+VSCODE_IPC_HOOK = \\.\pipe\3fa19121bb7ecb5b3622e7b8bdb949aa-1.69.2-main-sock
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := 
+# environment
+ALLUSERSPROFILE = C:\ProgramData
+# environment
+SESSIONNAME = Console
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync load
+# environment
+PROCESSOR_REVISION = 1100
+# environment
+CHOCOLATEYTOOLSLOCATION = C:\tools
+# environment
+PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 17 Stepping 0, AuthenticAMD
+# variable set hash-table stats:
+# Load=108/1024=11%, Rehash=0, Collisions=13/132=10%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (key c:/Users/MATHYS/Documents/Dev/CPP/skaribu-tower-defense, mtime 1658607289): 13 files, no impossibilities.
+
+# 13 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+all:
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+makefile:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+
+# Not a target:
+makefile.mak:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+
+# Not a target:
+GNUmakefile:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+
+# files hash-table stats:
+# Load=7/1024=1%, Rehash=0, Collisions=0/16=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 20 / storage = 174 B / avg = 8 B
+# current buf: size = 8174 B / used = 174 B / count = 20 / avg = 8 B
+
+# strcache performance: lookups = 23 / hit rate = 13%
+# hash-table stats:
+# Load=20/8192=0%, Rehash=0, Collisions=0/23=0%
+# Finished Make data base on Sun Jul 24 12:06:56 2022
+
+ 
