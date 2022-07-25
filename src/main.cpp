@@ -3,7 +3,7 @@
 #include "GameConstants.hpp"
 #include "PathManager.hpp"
 #include "EnemyManager.hpp"
-#include "tower/BasicTower.hpp"
+#include "TowerManager.hpp"
 #include <vector>
 #include <math.h>
 
@@ -23,16 +23,14 @@ int main(int argc, char *argv[]) {
 
     EnemyManager enemyManager(&pathManager);
 
-    BasicTower tower(&pathManager, &enemyManager, raylib::Vector2(8, 0));
-    BasicTower tower1(&pathManager, &enemyManager, raylib::Vector2(3, 3));
+    TowerManager towerManager(&pathManager, &enemyManager);
 
     while (!window.ShouldClose()) {
         // Update
         //----------------------------------------------------------------------------------
 
         enemyManager.update();
-        tower.update();
-        tower1.update();
+        towerManager.update();
 
         // Draw
         //----------------------------------------------------------------------------------
@@ -49,8 +47,7 @@ int main(int argc, char *argv[]) {
 
             pathManager.draw();
             enemyManager.draw();
-            tower.draw();
-            tower1.draw();
+            towerManager.draw();
 
         EndDrawing();
     }

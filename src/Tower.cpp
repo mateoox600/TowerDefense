@@ -46,3 +46,7 @@ void Tower::draw() {
     if(target != nullptr)
         (position * cellSize + halfCellOffset).DrawLine((pathManager->getPointOnPath(target->getProgress()) * cellSize + halfCellOffset), 2, BLACK);
 }
+
+raylib::Vector2 Tower::getPosition() {
+    return position;
+}

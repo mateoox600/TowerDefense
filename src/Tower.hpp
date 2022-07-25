@@ -24,4 +24,6 @@ public:
 
     void update();
     void draw();
+
+    raylib::Vector2 getPosition();
 };

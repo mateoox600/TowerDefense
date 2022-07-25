@@ -6,7 +6,7 @@ class Weak : public Enemy {
 private:
     
 public:
-    Weak(float startProgress, PathManager* pathManager) : Enemy(startProgress, 0.01f, 2.0f, pathManager, VIOLET) {
+    Weak(float startProgress, PathManager* pathManager) : Enemy(startProgress, 0.01f, 3.0f, pathManager, VIOLET) {
         
     }
 };
