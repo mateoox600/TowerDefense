@@ -1,17 +1,16 @@
 #pragma once
 
 #include <vector>
+#include "Global.hpp"
 #include "Enemy.hpp"
 #include "enemies/Weak.hpp"
 
 class EnemyManager {
 private:
-    PathManager* pathManager;
     std::vector<Enemy> enemies{};
     float spawnAccumulator = 5.0f;
 
 public:
-    EnemyManager(PathManager* pathManager);
 
     void update();
     void draw();

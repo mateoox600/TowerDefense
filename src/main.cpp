@@ -4,12 +4,15 @@
 #include "PathManager.hpp"
 #include "EnemyManager.hpp"
 #include "TowerManager.hpp"
+#include "Global.hpp"
 #include <vector>
 #include <math.h>
 
 #include <iostream>
 
 using namespace GameConstants;
+
+Global global;
 
 int main(int argc, char *argv[]) {
     // Initialization
@@ -20,10 +23,14 @@ int main(int argc, char *argv[]) {
     window.SetTargetFPS(60);
 
     PathManager pathManager(start, path);
+    EnemyManager enemyManager;
+    TowerManager towerManager;
 
-    EnemyManager enemyManager(&pathManager);
-
-    TowerManager towerManager(&pathManager, &enemyManager);
+    global = Global{
+        &pathManager,
+        &enemyManager,
+        &towerManager
+    };
 
     while (!window.ShouldClose()) {
         // Update

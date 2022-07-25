@@ -1,6 +1,7 @@
 #pragma once
 
 #include "raylib-cpp.hpp"
+#include "Global.hpp"
 #include "GameConstants.hpp"
 #include "PathManager.hpp"
 
@@ -12,11 +13,10 @@ private:
     float speed;
     float health;
     float maxHealth;
-    PathManager* pathManager;
     raylib::Vector2 pathProgress = raylib::Vector2(0, 0);
     Color color = BLUE;
 public:
-    Enemy(float defaultProgress, float speed, float health, PathManager* pathManager, Color color);
+    Enemy(float defaultProgress, float speed, float health, Color color);
 
     void update();
     void draw();

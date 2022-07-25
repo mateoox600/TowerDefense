@@ -4,14 +4,10 @@
 #include "iostream"
 
 Tower::Tower(
-    PathManager* pathManager,
-    EnemyManager* enemyManager,
     raylib::Vector2 position,
     int range,
     float damage,
     float fireSpeed):
-        pathManager(pathManager),
-        enemyManager(enemyManager),
         position(position),
         range(range),
         damage(damage),
@@ -20,7 +16,7 @@ Tower::Tower(
 }
 
 void Tower::update() {
-    std::vector<Enemy*> enemiesInRange = enemyManager->getEnemyInRadius(position, range);
+    std::vector<Enemy*> enemiesInRange = global.enemyManager->getEnemyInRadius(position, range);
 
     target = nullptr;
     for (size_t i = 0; i < enemiesInRange.size(); i++) {
@@ -44,7 +40,7 @@ void Tower::draw() {
     (position * cellSize + halfCellOffset).DrawCircle(cellSize / 2.5, GREEN);
     (position * cellSize + halfCellOffset).DrawPoly(6, cellSize / 4, 0, BLUE);
     if(target != nullptr)
-        (position * cellSize + halfCellOffset).DrawLine((pathManager->getPointOnPath(target->getProgress()) * cellSize + halfCellOffset), 2, BLACK);
+        (position * cellSize + halfCellOffset).DrawLine((global.pathManager->getPointOnPath(target->getProgress()) * cellSize + halfCellOffset), 2, BLACK);
 }
 
 raylib::Vector2 Tower::getPosition() {

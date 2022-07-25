@@ -1,6 +1,7 @@
 #pragma once
 
 #include "raylib-cpp.hpp"
+#include "Global.hpp"
 #include "EnemyManager.hpp"
 #include "GameConstants.hpp"
 #include "PathManager.hpp"
@@ -15,12 +16,10 @@ private:
     float damage;
     float fireSpeed;
     float fireAccumulator = 0.0f;
-    PathManager* pathManager;
-    EnemyManager* enemyManager;
     Enemy* target = nullptr;
 
 public:
-    Tower(PathManager* pathManager, EnemyManager* enemyManager, raylib::Vector2 position, int range, float damage, float fireSpeed);
+    Tower(raylib::Vector2 position, int range, float damage, float fireSpeed);
 
     void update();
     void draw();

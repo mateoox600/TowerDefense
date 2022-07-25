@@ -9,12 +9,9 @@
 
 class TowerManager {
 private:
-    PathManager* pathManager;
-    EnemyManager* enemyManager;
     std::vector<Tower> towers{ };
 
 public:
-    TowerManager(PathManager* pathManager, EnemyManager* enemyManager);
 
     void update();
     void draw();

@@ -1,10 +1,6 @@
 
 #include "TowerManager.hpp"
 
-TowerManager::TowerManager(PathManager* pathManager, EnemyManager* enemyManager) : pathManager(pathManager), enemyManager(enemyManager) {
-
-}
-
 void TowerManager::update() {
 
     if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
@@ -13,7 +9,7 @@ void TowerManager::update() {
             floor(mousePosition.x / cellSize),
             floor(mousePosition.y / cellSize)
         );
-        placeTower(BasicTower(pathManager, enemyManager, screenPosition));
+        placeTower(BasicTower(screenPosition));
     }
 
     for (size_t i = 0; i < towers.size(); i++) {
