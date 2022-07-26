@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.15)
 
-project(raylib-cmake-test)
+project(cdg-tower-defense)
 
 add_subdirectory(lib/raylib)
 add_subdirectory(lib/raylib-cpp)
