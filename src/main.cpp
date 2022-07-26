@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
 
         // Draw
         //----------------------------------------------------------------------------------
-        BeginDrawing();
+        window.BeginDrawing();
             window.ClearBackground(WHITE);
 
             for (size_t i = 0; i < mapSize.x + 1; i++) {
@@ -56,12 +56,8 @@ int main(int argc, char *argv[]) {
             enemyManager.draw();
             towerManager.draw();
 
-        EndDrawing();
+        window.EndDrawing();
     }
-
-    // De-Initialization
-    //--------------------------------------------------------------------------------------
-    CloseWindow();
 
     return 0;
 }

@@ -6,6 +6,8 @@ class PathManager;
 class EnemyManager;
 class TowerManager;
 
+struct Wave;
+
 struct Global {
 
     PathManager* pathManager;
@@ -35,6 +37,23 @@ struct Global {
             raylib::Vector2( -1, 0 ),
             raylib::Vector2( -1, 0 ),
             raylib::Vector2( -1, 0 ),
+        },
+        std::vector<EnemyWave> {
+            EnemyWave {
+                std::vector<int> { 0, 0, 0 },
+                10,
+                3.0f
+            },
+            EnemyWave {
+                std::vector<int> { 0, 0, 0, 0, 0 },
+                25,
+                3.0f
+            },
+            EnemyWave {
+                std::vector<int> { 1, 1, 0, 0, 0 },
+                50,
+                3.0f
+            }
         }
     };
 
