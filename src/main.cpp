@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
 
     window.SetTargetFPS(60);
 
-    PathManager pathManager(start, path);
+    PathManager pathManager;
     EnemyManager enemyManager;
     TowerManager towerManager;
 
