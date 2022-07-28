@@ -41,6 +41,7 @@ void Tower::draw() {
     (position * cellSize + halfCellOffset).DrawPoly(6, cellSize / 4, 0, BLUE);
     if(target != nullptr)
         (position * cellSize + halfCellOffset).DrawLine((global.pathManager->getPointOnPath(target->getProgress()) * cellSize + halfCellOffset), 2, BLACK);
+    (position * cellSize + halfCellOffset).DrawRectangle(raylib::Vector2(cellSize, cellSize), RED);
 }
 
 raylib::Vector2 Tower::getPosition() {

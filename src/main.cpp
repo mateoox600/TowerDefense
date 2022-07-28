@@ -50,11 +50,11 @@ int main(int argc, char *argv[]) {
                 DrawLine(0, cellSize * j, screenWidth, cellSize * j, BLACK);
             }
 
+            DrawRectangle(0, screenHeight - footerSize, screenWidth, footerSize, GRAY);
+
             pathManager.draw();
             enemyManager.draw();
             towerManager.draw();
-
-            DrawRectangle(0, screenHeight - footerSize, screenWidth, footerSize, GRAY);
 
         window.EndDrawing();
     }

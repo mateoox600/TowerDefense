@@ -5,11 +5,18 @@ void TowerManager::update() {
 
     if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
         raylib::Vector2 mousePosition = GetMousePosition();
-        raylib::Vector2 screenPosition = raylib::Vector2(
-            floor(mousePosition.x / cellSize),
-            floor(mousePosition.y / cellSize)
-        );
-        placeTower(BasicTower(screenPosition));
+        if(mousePosition.y < screenHeight - footerSize) {
+            raylib::Vector2 screenPosition = raylib::Vector2(
+                floor(mousePosition.x / cellSize),
+                floor(mousePosition.y / cellSize)
+            );
+            placeTower(BasicTower(screenPosition));
+        }else if(mousePosition.x > 20 && mousePosition.x < 20 + 6 * (cellSize + 5) - 5 &&
+                mousePosition.y > screenHeight - footerSize + 20 && mousePosition.y < screenHeight - 20) {
+            raylib::Vector2 position(floor((mousePosition.x - 20) / (cellSize + 5)), floor((mousePosition.y - (screenHeight - footerSize + 20)) / (cellSize + 5)));
+            int buttonIndex = position.x + position.y * 6;
+            printf("%i\n", buttonIndex);
+        }
     }
 
     for (size_t i = 0; i < towers.size(); i++) {
@@ -21,6 +28,15 @@ void TowerManager::draw() {
     for (size_t i = 0; i < towers.size(); i++) {
         towers[i].draw();
     }
+
+    DrawRectangle(10, screenHeight - footerSize + 10, (cellSize + 5) * 6 + 20 - 5, footerSize - 20, DARKGRAY);
+    
+    for (size_t i = 0; i < 12; i++) {
+        raylib::Vector2 position(i % 6, floor(i / 6));
+        raylib::Vector2 screenPosition(20 + position.x * (cellSize + 5), screenHeight - footerSize + 20 + position.y * (cellSize + 5));
+        screenPosition.DrawRectangle(raylib::Vector2(cellSize, cellSize), RED);
+    }
+    
 }
 
 void TowerManager::placeTower(Tower tower) {

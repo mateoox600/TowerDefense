@@ -10,7 +10,7 @@ namespace GameConstants {
     const int cellSize = 40;
     const raylib::Vector2 halfCellOffset(cellSize / 2, cellSize / 2);
 
-    const int footerSize = screenHeight / 8;
+    const int footerSize = cellSize * 2 + 45;
 
     const raylib::Vector2 mapSize(floor(screenWidth / cellSize), floor((screenHeight - footerSize) / cellSize));
 }
