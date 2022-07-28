@@ -10,6 +10,13 @@ struct Wave;
 
 struct Global {
 
+    Global() { }
+    Global(
+        PathManager* pathManager,
+        EnemyManager* enemyManager,
+        TowerManager* towerManager
+    ) : pathManager(pathManager), enemyManager(enemyManager), towerManager(towerManager) { }
+
     PathManager* pathManager;
     EnemyManager* enemyManager;
     TowerManager* towerManager;

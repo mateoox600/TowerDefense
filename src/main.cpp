@@ -26,11 +26,10 @@ int main(int argc, char *argv[]) {
     EnemyManager enemyManager;
     TowerManager towerManager;
 
-    global = Global{
+    global = Global(
         &pathManager,
         &enemyManager,
-        &towerManager
-    };
+        &towerManager);
 
     while (!window.ShouldClose()) {
         // Update
@@ -50,11 +49,12 @@ int main(int argc, char *argv[]) {
             for (size_t j = 0; j < mapSize.y + 1; j++) {
                 DrawLine(0, cellSize * j, screenWidth, cellSize * j, BLACK);
             }
-            
 
             pathManager.draw();
             enemyManager.draw();
             towerManager.draw();
+
+            DrawRectangle(0, screenHeight - footerSize, screenWidth, footerSize, GRAY);
 
         window.EndDrawing();
     }
