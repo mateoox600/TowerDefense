@@ -1,8 +1,6 @@
 
 #include "Tower.hpp"
 
-#include "iostream"
-
 Tower::Tower(
     raylib::Vector2 position,
     int range,
@@ -16,6 +14,14 @@ Tower::Tower(
 }
 
 void Tower::update() {
+
+    for (size_t i = projectiles.size(); i-- != 0;) {
+        bool hit = projectiles[i].update();
+        if(hit) {
+            projectiles.erase(projectiles.begin() + i);
+        }
+    }
+    
     std::vector<Enemy*> enemiesInRange = global.enemyManager->getEnemyInRadius(position, range);
 
     target = nullptr;
@@ -30,7 +36,10 @@ void Tower::update() {
         fireAccumulator += GetFrameTime();
         if(fireAccumulator >= fireSpeed) {
             fireAccumulator = 0.0f;
-            target->damage(damage);
+            projectiles.push_back(Projectile{
+                0.0f, this, target
+            });
+            // target->damage(damage);
         }
     }else fireAccumulator = 0.0f;
     
@@ -39,9 +48,10 @@ void Tower::update() {
 void Tower::draw() {
     (position * cellSize + halfCellOffset).DrawCircle(cellSize / 2.5, GREEN);
     (position * cellSize + halfCellOffset).DrawPoly(6, cellSize / 4, 0, BLUE);
-    if(target != nullptr)
-        (position * cellSize + halfCellOffset).DrawLine((global.pathManager->getPointOnPath(target->getProgress()) * cellSize + halfCellOffset), 2, BLACK);
-    (position * cellSize + halfCellOffset).DrawRectangle(raylib::Vector2(cellSize, cellSize), RED);
+
+    for (size_t i = 0; i < projectiles.size(); i++) {
+        projectiles[i].draw();
+    }
 }
 
 raylib::Vector2 Tower::getPosition() {

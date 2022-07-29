@@ -5,6 +5,7 @@
 #include "EnemyManager.hpp"
 #include "GameConstants.hpp"
 #include "PathManager.hpp"
+#include "Projectile.hpp"
 #include <vector>
 
 using namespace GameConstants;
@@ -16,6 +17,7 @@ private:
     float damage;
     float fireSpeed;
     float fireAccumulator = 0.0f;
+    std::vector<Projectile> projectiles{ };
     Enemy* target = nullptr;
 
 public:

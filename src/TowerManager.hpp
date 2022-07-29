@@ -3,6 +3,7 @@
 #include "raylib-cpp.hpp"
 #include "EnemyManager.hpp"
 #include "PathManager.hpp"
+#include "Enemy.hpp"
 #include "Tower.hpp"
 #include "tower/BasicTower.hpp"
 #include <vector>
