@@ -1,10 +1,10 @@
 
 #include "raylib-cpp.hpp"
 #include "GameConstants.hpp"
+#include "Global.hpp"
 #include "PathManager.hpp"
 #include "EnemyManager.hpp"
 #include "TowerManager.hpp"
-#include "Global.hpp"
 #include <vector>
 #include <math.h>
 

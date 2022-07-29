@@ -14,15 +14,16 @@ void EnemyManager::update() {
         spawnAccumulator = 0.0f;
         switch (toSpawn[0]) {
         case 0:
-            enemies.push_back(Weak(0.0f));
+            enemies.push_back(Weak(lastId, 0.0f));
             break;
         case 1:
-            enemies.push_back(Medium(0.0f));
+            enemies.push_back(Medium(lastId, 0.0f));
             break;
         default:
-            enemies.push_back(Weak(0.0f));
+            enemies.push_back(Weak(lastId, 0.0f));
             break;
         }
+        lastId++;
         toSpawn.erase(toSpawn.begin());
     }
 
@@ -55,4 +56,12 @@ std::vector<Enemy*> EnemyManager::getEnemyInRadius(raylib::Vector2 position, int
     }
 
     return enemiesInRandius;
+}
+
+Enemy* EnemyManager::getEnemyById(int id) {
+    Enemy* enemyFound = nullptr;
+    for (size_t i = 0; i < enemies.size(); i++) {
+        if(enemies[i].getId() == id) enemyFound = &enemies[i];
+    }
+    return enemyFound;
 }

@@ -2,10 +2,12 @@
 #include "Enemy.hpp"
 
 Enemy::Enemy(
+    int id,
     float defaultProgress,
     float speed,
     float health,
     Color color):
+        id(id),
         progress(defaultProgress),
         speed(speed),
         maxHealth(health),
@@ -33,4 +35,8 @@ float Enemy::getHealth() {
 
 void Enemy::damage(float damage) {
     health -= damage;
+}
+
+int Enemy::getId() {
+    return id;
 }

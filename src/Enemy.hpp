@@ -9,6 +9,7 @@ using namespace GameConstants;
 
 class Enemy {
 private:
+    int id;
     float progress;
     float speed;
     float health;
@@ -16,7 +17,7 @@ private:
     raylib::Vector2 pathProgress = raylib::Vector2(0, 0);
     Color color = BLUE;
 public:
-    Enemy(float defaultProgress, float speed, float health, Color color);
+    Enemy(int id, float defaultProgress, float speed, float health, Color color);
 
     void update();
     void draw();
@@ -25,4 +26,6 @@ public:
     float getHealth();
 
     void damage(float damage);
+
+    int getId();
 };

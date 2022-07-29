@@ -2,10 +2,12 @@
 #include "Tower.hpp"
 
 Tower::Tower(
+    int id,
     raylib::Vector2 position,
     int range,
     float damage,
     float fireSpeed):
+        id(id),
         position(position),
         range(range),
         damage(damage),
@@ -24,10 +26,9 @@ void Tower::update() {
     
     std::vector<Enemy*> enemiesInRange = global.enemyManager->getEnemyInRadius(position, range);
 
-    target = nullptr;
+    Enemy* target = nullptr;
     for (size_t i = 0; i < enemiesInRange.size(); i++) {
-        if(target == nullptr)
-            target = enemiesInRange[i];
+        if(target == nullptr) target = enemiesInRange[i];
         else if(enemiesInRange[i]->getProgress() > target->getProgress())
             target = enemiesInRange[i];
     }
@@ -37,7 +38,7 @@ void Tower::update() {
         if(fireAccumulator >= fireSpeed) {
             fireAccumulator = 0.0f;
             projectiles.push_back(Projectile{
-                0.0f, this, target
+                0.0f, id, target->getId()
             });
             // target->damage(damage);
         }
@@ -52,6 +53,10 @@ void Tower::draw() {
     for (size_t i = 0; i < projectiles.size(); i++) {
         projectiles[i].draw();
     }
+}
+
+int Tower::getId() {
+    return id;
 }
 
 raylib::Vector2 Tower::getPosition() {

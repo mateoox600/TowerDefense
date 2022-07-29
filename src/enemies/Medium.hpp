@@ -6,7 +6,7 @@ class Medium : public Enemy {
 private:
     
 public:
-    Medium(float startProgress) : Enemy(startProgress, 0.01f, 5.0f, GRAY) {
+    Medium(int id, float startProgress) : Enemy(id, startProgress, 0.01f, 5.0f, GRAY) {
         
     }
 };

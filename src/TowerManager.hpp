@@ -10,6 +10,7 @@
 
 class TowerManager {
 private:
+    int lastId = 0;
     std::vector<Tower> towers{ };
 
 public:
@@ -19,4 +20,6 @@ public:
 
     void placeTower(Tower tower);
     void deleteTowerAt(raylib::Vector2 position);
+
+    Tower* getTowerById(int id);
 };

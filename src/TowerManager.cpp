@@ -10,7 +10,8 @@ void TowerManager::update() {
                 floor(mousePosition.x / cellSize),
                 floor(mousePosition.y / cellSize)
             );
-            placeTower(BasicTower(screenPosition));
+            placeTower(BasicTower(lastId, screenPosition));
+            lastId++;
         }else if(mousePosition.x > 20 && mousePosition.x < 20 + 6 * (cellSize + 5) - 5 &&
                 mousePosition.y > screenHeight - footerSize + 20 && mousePosition.y < screenHeight - 20) {
             raylib::Vector2 position(floor((mousePosition.x - 20) / (cellSize + 5)), floor((mousePosition.y - (screenHeight - footerSize + 20)) / (cellSize + 5)));
@@ -45,9 +46,16 @@ void TowerManager::placeTower(Tower tower) {
 
 void TowerManager::deleteTowerAt(raylib::Vector2 position) {
     for (size_t i = towers.size(); i-- != 0;) {
-        Tower* tower = &towers[i];
-        if(tower->getPosition() == position) {
+        if(towers[i].getPosition() == position) {
             towers.erase(towers.begin() + i);
         }
     }
+}
+
+Tower* TowerManager::getTowerById(int id) {
+    Tower* towerFound = nullptr;
+    for (size_t i = 0; i < towers.size(); i++) {
+        if(towers[i].getId() == id) towerFound = &towers[i];
+    }
+    return towerFound;
 }

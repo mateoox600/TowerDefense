@@ -6,7 +6,7 @@ class BasicTower : public Tower {
 private:
     
 public:
-    BasicTower(raylib::Vector2 spawnPosition) : Tower(spawnPosition, 4, 1.0f, 2.5f) {
+    BasicTower(int id, raylib::Vector2 spawnPosition) : Tower(id, spawnPosition, 4, 1.0f, 2.5f) {
         
     }
 };
