@@ -22,7 +22,7 @@ struct Global {
     TowerManager* towerManager;
     
     Map map {
-        raylib::Vector2(2, 0),
+        raylib::Vector2(2, 2),
         std::vector<raylib::Vector2> {
             raylib::Vector2( 0, 1 ),
             raylib::Vector2( 0, 1 ),
