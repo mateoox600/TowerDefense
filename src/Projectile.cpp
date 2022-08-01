@@ -13,7 +13,7 @@ bool Projectile::update() {
     raylib::Vector2 from = tower->getPosition();
     raylib::Vector2 to = global.pathManager->getPointOnPath(enemy->getProgress());
     if(progress >= from.Distance(to)) {
-        enemy->damage(1);
+        enemy->damage(tower->getDamage());
         return true;
     }
     return false;

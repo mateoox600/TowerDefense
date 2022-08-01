@@ -6,11 +6,13 @@
 #include "Enemy.hpp"
 #include "Tower.hpp"
 #include "tower/BasicTower.hpp"
+#include "tower/StrongTower.hpp"
 #include <vector>
 
 class TowerManager {
 private:
     int lastId = 0;
+    int towerPlacingIndex = 0;
     std::vector<Tower> towers{ };
 
 public:

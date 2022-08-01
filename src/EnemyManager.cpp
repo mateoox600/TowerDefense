@@ -59,9 +59,8 @@ std::vector<Enemy*> EnemyManager::getEnemyInRadius(raylib::Vector2 position, int
 }
 
 Enemy* EnemyManager::getEnemyById(int id) {
-    Enemy* enemyFound = nullptr;
     for (size_t i = 0; i < enemies.size(); i++) {
-        if(enemies[i].getId() == id) enemyFound = &enemies[i];
+        if(enemies[i].getId() == id) return &enemies[i];
     }
-    return enemyFound;
+    return nullptr;
 }

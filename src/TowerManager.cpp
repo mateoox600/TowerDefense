@@ -10,12 +10,25 @@ void TowerManager::update() {
                 floor(mousePosition.x / cellSize),
                 floor(mousePosition.y / cellSize)
             );
-            placeTower(BasicTower(lastId, screenPosition));
+            switch (towerPlacingIndex) {
+                case 0:
+                    placeTower(BasicTower(lastId, screenPosition));
+                    break;
+                case 1:
+                    placeTower(StrongTower(lastId, screenPosition));
+                    break;
+                
+                default:
+                    placeTower(BasicTower(lastId, screenPosition));
+                    break;
+            }
+            
             lastId++;
         }else if(mousePosition.x > 20 && mousePosition.x < 20 + 6 * (cellSize + 5) - 5 &&
                 mousePosition.y > screenHeight - footerSize + 20 && mousePosition.y < screenHeight - 20) {
             raylib::Vector2 position(floor((mousePosition.x - 20) / (cellSize + 5)), floor((mousePosition.y - (screenHeight - footerSize + 20)) / (cellSize + 5)));
             int buttonIndex = position.x + position.y * 6;
+            towerPlacingIndex = buttonIndex;
             printf("%i\n", buttonIndex);
         }
     }
@@ -27,7 +40,8 @@ void TowerManager::update() {
 
 void TowerManager::draw() {
     for (size_t i = 0; i < towers.size(); i++) {
-        towers[i].draw();
+        Tower* tower = &towers[i];
+        tower->draw();
     }
 
     DrawRectangle(10, screenHeight - footerSize + 10, (cellSize + 5) * 6 + 20 - 5, footerSize - 20, DARKGRAY);
@@ -53,9 +67,8 @@ void TowerManager::deleteTowerAt(raylib::Vector2 position) {
 }
 
 Tower* TowerManager::getTowerById(int id) {
-    Tower* towerFound = nullptr;
     for (size_t i = 0; i < towers.size(); i++) {
-        if(towers[i].getId() == id) towerFound = &towers[i];
+        if(towers[i].getId() == id) return &towers[i];
     }
-    return towerFound;
+    return nullptr;
 }
