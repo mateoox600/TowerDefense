@@ -29,7 +29,6 @@ void TowerManager::update() {
             raylib::Vector2 position(floor((mousePosition.x - 20) / (cellSize + 5)), floor((mousePosition.y - (screenHeight - footerSize + 20)) / (cellSize + 5)));
             int buttonIndex = position.x + position.y * 6;
             towerPlacingIndex = buttonIndex;
-            printf("%i\n", buttonIndex);
         }
     }
 

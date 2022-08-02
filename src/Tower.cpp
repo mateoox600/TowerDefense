@@ -3,14 +3,14 @@
 
 Tower::Tower(
     int id,
-    int type,
     raylib::Vector2 position,
+    Color color,
     int range,
     float damage,
     float fireSpeed):
         id(id),
-        type(type),
         position(position),
+        color(color),
         range(range),
         damage(damage),
         fireSpeed(fireSpeed) {
@@ -52,24 +52,8 @@ void Tower::draw() {
     for (size_t i = 0; i < projectiles.size(); i++) {
         projectiles[i].draw();
     }
-
-    switch (type) {
-        case 0: {
-            (getPosition() * cellSize + halfCellOffset).DrawCircle(cellSize / 2.5, GREEN);
-            (getPosition() * cellSize + halfCellOffset).DrawPoly(6, cellSize / 4, 0, BLUE);
-            break;
-        }
-        case 1: {
-            (getPosition() * cellSize + halfCellOffset).DrawCircle(cellSize / 2.5, GREEN);
-            (getPosition() * cellSize + halfCellOffset).DrawPoly(6, cellSize / 4, 0, RED);
-            break;
-        }
-        default: {
-            (getPosition() * cellSize + halfCellOffset).DrawCircle(cellSize / 2.5, GREEN);
-            (getPosition() * cellSize + halfCellOffset).DrawPoly(6, cellSize / 4, 0, BLUE);
-            break;
-        }
-    }
+    (getPosition() * cellSize + halfCellOffset).DrawCircle(cellSize / 2.5, GREEN);
+    (getPosition() * cellSize + halfCellOffset).DrawPoly(6, cellSize / 4, 0, color);
 }
 
 int Tower::getId() {

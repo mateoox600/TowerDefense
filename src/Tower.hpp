@@ -14,8 +14,8 @@ using namespace GameConstants;
 class Tower {
 private:
     int id;
-    int type;
     raylib::Vector2 position;
+    Color color;
     int range;
     float damage;
     float fireSpeed;
@@ -23,7 +23,7 @@ private:
     std::vector<Projectile> projectiles{ };
 
 public:
-    Tower(int id, int type, raylib::Vector2 position, int range, float damage, float fireSpeed);
+    Tower(int id, raylib::Vector2 position, Color color, int range, float damage, float fireSpeed);
 
     void update();
     void draw();
