@@ -1,11 +1,6 @@
 #pragma once
 
 #include "raylib-cpp.hpp"
-#include "Global.hpp"
-#include "GameConstants.hpp"
-#include "PathManager.hpp"
-
-using namespace GameConstants;
 
 class Enemy {
 private:

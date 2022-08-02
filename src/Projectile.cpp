@@ -1,27 +1,37 @@
 
 #include "Projectile.hpp"
+
+#include "GameConstants.hpp"
+#include "Global.hpp"
+#include "Enemy.hpp"
 #include "Tower.hpp"
-#include "TowerManager.hpp"
+
+using namespace GameConstants;
 
 bool Projectile::update() {
     progress += 0.07;
-    Tower* tower = global.towerManager->getTowerById(towerId);
-    Enemy* enemy = global.enemyManager->getEnemyById(targetId);
+
+    Tower* tower = global.towerManager.getTowerById(towerId);
+    Enemy* enemy = global.enemyManager.getEnemyById(targetId);
+
     if(enemy == nullptr || tower == nullptr) {
         return true;
     }
+
     raylib::Vector2 from = tower->getPosition();
-    raylib::Vector2 to = global.pathManager->getPointOnPath(enemy->getProgress());
+    raylib::Vector2 to = global.pathManager.getPointOnPath(enemy->getProgress());
+
     if(progress >= from.Distance(to)) {
         enemy->damage(tower->getDamage());
         return true;
     }
+
     return false;
 }
 
 void Projectile::draw() {
-    raylib::Vector2 from = global.towerManager->getTowerById(towerId)->getPosition();
-    raylib::Vector2 to = global.pathManager->getPointOnPath(global.enemyManager->getEnemyById(targetId)->getProgress());
+    raylib::Vector2 from = global.towerManager.getTowerById(towerId)->getPosition();
+    raylib::Vector2 to = global.pathManager.getPointOnPath(global.enemyManager.getEnemyById(targetId)->getProgress());
     
     /*
     printf("x: %f, y: %f\n", from.x, from.y);

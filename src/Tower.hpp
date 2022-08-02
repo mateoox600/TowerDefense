@@ -1,15 +1,7 @@
 #pragma once
 
 #include "raylib-cpp.hpp"
-#include "Global.hpp"
-#include "EnemyManager.hpp"
-#include "GameConstants.hpp"
-#include "PathManager.hpp"
 #include "Projectile.hpp"
-#include <vector>
-#include <memory>
-
-using namespace GameConstants;
 
 class Tower {
 private:
@@ -20,7 +12,7 @@ private:
     float damage;
     float fireSpeed;
     float fireAccumulator = 0.0f;
-    std::vector<Projectile> projectiles{ };
+    std::vector<Projectile> projectiles;
 
 public:
     Tower(int id, raylib::Vector2 position, Color color, int range, float damage, float fireSpeed);

@@ -1,6 +1,12 @@
 
 #include "Tower.hpp"
 
+#include "GameConstants.hpp"
+#include "Global.hpp"
+#include <vector>
+
+using namespace GameConstants;
+
 Tower::Tower(
     int id,
     raylib::Vector2 position,
@@ -26,7 +32,7 @@ void Tower::update() {
         }
     }
     
-    std::vector<Enemy*> enemiesInRange = global.enemyManager->getEnemyInRadius(position, range);
+    std::vector<Enemy*> enemiesInRange = global.enemyManager.getEnemyInRadius(position, range);
 
     Enemy* target = nullptr;
     for (size_t i = 0; i < enemiesInRange.size(); i++) {

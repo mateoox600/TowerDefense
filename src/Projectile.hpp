@@ -1,9 +1,6 @@
 #pragma once
 
 #include "raylib-cpp.hpp"
-#include "Global.hpp"
-#include "Enemy.hpp"
-#include <memory>
 
 class Tower;
 

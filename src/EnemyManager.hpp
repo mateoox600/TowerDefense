@@ -1,22 +1,19 @@
 #pragma once
 
 #include <vector>
-#include <memory>
-#include "Global.hpp"
 #include "Enemy.hpp"
-#include "Wave.hpp"
-#include "enemies/Weak.hpp"
-#include "enemies/Medium.hpp"
 
 class EnemyManager {
 private:
     int currentWave = 0;
     int lastId = 0;
-    std::vector<int> toSpawn = global.map.waves[currentWave].enemies;
+    std::vector<int> toSpawn;
     float spawnAccumulator = 0.0f;
-    std::vector<Enemy> enemies{};
+    std::vector<Enemy> enemies;
 
 public:
+    void init();
+    void reset();
 
     void update();
     void draw();

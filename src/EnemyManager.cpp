@@ -1,10 +1,29 @@
 
 #include "EnemyManager.hpp"
 
+#include "GameConstants.hpp"
+#include "Global.hpp"
+#include "enemies/Weak.hpp"
+#include "enemies/Medium.hpp"
+
+void EnemyManager::init() {
+    toSpawn = GameConstants::map.waves[currentWave].enemies;
+}
+
+void EnemyManager::reset() {
+    currentWave = 0;
+    lastId = 0;
+    toSpawn.clear();
+    spawnAccumulator = 0.0f;
+    enemies.clear();
+
+    init();
+}
+
 void EnemyManager::update() {
 
     spawnAccumulator += GetFrameTime();
-    if(spawnAccumulator >= global.map.waves[currentWave].spawnInterval && toSpawn.size() > 0) {
+    if(spawnAccumulator >= GameConstants::map.waves[currentWave].spawnInterval && toSpawn.size() > 0) {
         spawnAccumulator = 0.0f;
         switch (toSpawn[0]) {
         case 0:
@@ -27,16 +46,16 @@ void EnemyManager::update() {
         if(enemy->getHealth() <= 0.0f) {
             global.money += enemy->getReward();
             enemies.erase(enemies.begin() + i);
-        }else if(global.pathManager->isOutsidePath(enemy->getProgress())) {
+        }else if(global.pathManager.isOutsidePath(enemy->getProgress())) {
             global.lives -= enemy->getHealth();
             enemies.erase(enemies.begin() + i);
         }
     }
 
     if(toSpawn.size() <= 0 && enemies.size() <= 0) {
-        global.money += global.map.waves[currentWave].reward;
+        global.money += GameConstants::map.waves[currentWave].reward;
         currentWave++;
-        toSpawn = global.map.waves[currentWave].enemies;
+        toSpawn = GameConstants::map.waves[currentWave].enemies;
     }
 }
 
@@ -52,7 +71,7 @@ std::vector<Enemy*> EnemyManager::getEnemyInRadius(raylib::Vector2 position, int
 
     for(size_t i = 0; i < enemies.size(); i++) {
         Enemy* enemy = &enemies[i];
-        raylib::Vector2 enemyPosition = global.pathManager->getPointOnPath(enemy->getProgress()) + raylib::Vector2(0.5, 0.5);
+        raylib::Vector2 enemyPosition = global.pathManager.getPointOnPath(enemy->getProgress()) + raylib::Vector2(0.5, 0.5);
         raylib::Vector2 distance = enemyPosition - position;
         if(distance.x >= -radius + 1 && distance.y >= -radius + 1 && distance.x <= radius && distance.y <= radius) {
             enemiesInRandius.push_back(enemy);

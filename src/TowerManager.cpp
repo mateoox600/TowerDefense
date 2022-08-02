@@ -1,6 +1,20 @@
 
 #include "TowerManager.hpp"
 
+#include "GameConstants.hpp"
+#include "Global.hpp"
+#include "Enemy.hpp"
+#include "tower/BasicTower.hpp"
+#include "tower/StrongTower.hpp"
+
+using namespace GameConstants;
+
+void TowerManager::reset() {
+    lastId = 0;
+    towerPlacingIndex = 0;
+    towers.clear();
+}
+
 void TowerManager::update() {
 
     if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
