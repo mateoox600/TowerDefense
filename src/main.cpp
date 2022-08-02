@@ -1,5 +1,10 @@
 
 #include "raylib-cpp.hpp"
+
+#ifdef PLATFORM_WEB
+	#include <emscripten/emscripten.h>
+#endif
+
 #include "GameConstants.hpp"
 #include "Global.hpp"
 #include "PathManager.hpp"
@@ -14,50 +19,61 @@ using namespace GameConstants;
 
 Global global;
 
+void UpdateDrawFrame();
+
 int main(int argc, char *argv[]) {
     // Initialization
     //--------------------------------------------------------------------------------------
 
-    raylib::Window window(screenWidth, screenHeight, "caribou");
-
-    window.SetTargetFPS(60);
+    raylib::Window window = raylib::Window(screenWidth, screenHeight, "caribou");
 
     PathManager pathManager;
     EnemyManager enemyManager;
     TowerManager towerManager;
 
     global = Global(
+        &window,
         &pathManager,
         &enemyManager,
-        &towerManager);
+        &towerManager
+	);
+
+#ifdef PLATFORM_WEB
+	emscripten_set_main_loop(UpdateDrawFrame, 0, 1);
+#else
+    window.SetTargetFPS(60);
 
     while (!window.ShouldClose()) {
-        // Update
-        //----------------------------------------------------------------------------------
-
-        enemyManager.update();
-        towerManager.update();
-
-        // Draw
-        //----------------------------------------------------------------------------------
-        window.BeginDrawing();
-            window.ClearBackground(WHITE);
-
-            for (size_t i = 0; i < mapSize.x + 1; i++) {
-                DrawLine(cellSize * i, 0, cellSize * i, screenHeight, BLACK);
-            }
-            for (size_t j = 0; j < mapSize.y + 1; j++) {
-                DrawLine(0, cellSize * j, screenWidth, cellSize * j, BLACK);
-            }
-
-            DrawRectangle(0, screenHeight - footerSize, screenWidth, footerSize, GRAY);
-
-            pathManager.draw();
-            enemyManager.draw();
-            towerManager.draw();
-
-        window.EndDrawing();
+        UpdateDrawFrame();
     }
+#endif
 
     return 0;
+}
+
+void UpdateDrawFrame() {
+	// Update
+	//----------------------------------------------------------------------------------
+	global.enemyManager->update();
+	global.towerManager->update();
+
+	// Draw
+	//----------------------------------------------------------------------------------
+	global.window->BeginDrawing();
+		global.window->ClearBackground(WHITE);
+
+		for (size_t i = 0; i < mapSize.x + 1; i++) {
+			DrawLine(cellSize * i, 0, cellSize * i, screenHeight, BLACK);
+		}
+		for (size_t j = 0; j < mapSize.y + 1; j++) {
+			DrawLine(0, cellSize * j, screenWidth, cellSize * j, BLACK);
+		}
+
+		DrawRectangle(0, screenHeight - footerSize, screenWidth, footerSize, GRAY);
+
+		global.pathManager->draw();
+		global.enemyManager->draw();
+		global.towerManager->draw();
+
+	global.window->EndDrawing();
 }

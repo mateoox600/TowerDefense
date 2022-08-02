@@ -48,6 +48,9 @@ void TowerManager::draw() {
     for (size_t i = 0; i < 12; i++) {
         raylib::Vector2 position(i % 6, floor(i / 6));
         raylib::Vector2 screenPosition(20 + position.x * (cellSize + 5), screenHeight - footerSize + 20 + position.y * (cellSize + 5));
+        if(i == towerPlacingIndex) {
+        (screenPosition - raylib::Vector2(1, 1)).DrawRectangle(raylib::Vector2(cellSize + 2, cellSize + 2), WHITE);
+        }
         screenPosition.DrawRectangle(raylib::Vector2(cellSize, cellSize), RED);
     }
     

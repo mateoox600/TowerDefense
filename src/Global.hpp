@@ -12,11 +12,14 @@ struct Global {
 
     Global() { }
     Global(
+        raylib::Window* window,
         PathManager* pathManager,
         EnemyManager* enemyManager,
         TowerManager* towerManager
-    ) : pathManager(pathManager), enemyManager(enemyManager), towerManager(towerManager) { }
+    ) : window(window), pathManager(pathManager), enemyManager(enemyManager), towerManager(towerManager) { }
 
+    raylib::Window* window;
+    
     PathManager* pathManager;
     EnemyManager* enemyManager;
     TowerManager* towerManager;
