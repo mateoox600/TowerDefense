@@ -3,11 +3,13 @@
 
 Enemy::Enemy(
     int id,
+    int reward,
     float defaultProgress,
     float speed,
     float health,
     Color color):
         id(id),
+        reward(reward),
         progress(defaultProgress),
         speed(speed),
         maxHealth(health),
@@ -25,6 +27,14 @@ void Enemy::draw() {
     (point - raylib::Vector2(cellSize / 2, cellSize / 2)).DrawRectangle(raylib::Vector2(cellSize * healthPercentage, cellSize / 10), RED);
 }
 
+int Enemy::getId() {
+    return id;
+}
+
+int Enemy::getReward() {
+    return reward;
+}
+
 float Enemy::getProgress() {
     return progress;
 }
@@ -35,8 +45,4 @@ float Enemy::getHealth() {
 
 void Enemy::damage(float damage) {
     health -= damage;
-}
-
-int Enemy::getId() {
-    return id;
 }

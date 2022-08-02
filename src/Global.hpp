@@ -23,6 +23,9 @@ struct Global {
     PathManager* pathManager;
     EnemyManager* enemyManager;
     TowerManager* towerManager;
+
+    int lives = 25;
+    int money = 250;
     
     Map map {
         raylib::Vector2(2, 2),
@@ -51,17 +54,17 @@ struct Global {
         std::vector<EnemyWave> {
             EnemyWave {
                 std::vector<int> { 0, 0, 0 },
-                10,
+                75,
                 3.0f
             },
             EnemyWave {
                 std::vector<int> { 0, 0, 0, 0, 0 },
-                25,
+                175,
                 3.0f
             },
             EnemyWave {
-                std::vector<int> { 1, 1, 0, 0, 0 },
-                50,
+                std::vector<int> { 0, 1, 1, 1, 1 },
+                300,
                 3.0f
             }
         }

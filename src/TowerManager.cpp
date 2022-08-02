@@ -11,14 +11,19 @@ void TowerManager::update() {
                 floor(mousePosition.y / cellSize)
             );
             switch (towerPlacingIndex) {
-                case 0:
-                    placeTower(BasicTower(lastId, screenPosition));
-                    break;
                 case 1:
+                    if(StrongTower::cost > global.money) {
+                        break;
+                    }
+                    global.money -= StrongTower::cost;
                     placeTower(StrongTower(lastId, screenPosition));
                     break;
                 
                 default:
+                    if(BasicTower::cost > global.money) {
+                        break;
+                    }
+                    global.money -= BasicTower::cost;
                     placeTower(BasicTower(lastId, screenPosition));
                     break;
             }
@@ -49,7 +54,7 @@ void TowerManager::draw() {
         raylib::Vector2 position(i % 6, floor(i / 6));
         raylib::Vector2 screenPosition(20 + position.x * (cellSize + 5), screenHeight - footerSize + 20 + position.y * (cellSize + 5));
         if(i == towerPlacingIndex) {
-        (screenPosition - raylib::Vector2(1, 1)).DrawRectangle(raylib::Vector2(cellSize + 2, cellSize + 2), WHITE);
+            (screenPosition - raylib::Vector2(1, 1)).DrawRectangle(raylib::Vector2(cellSize + 2, cellSize + 2), WHITE);
         }
         screenPosition.DrawRectangle(raylib::Vector2(cellSize, cellSize), RED);
     }

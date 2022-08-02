@@ -3,12 +3,6 @@
 
 void EnemyManager::update() {
 
-    if(toSpawn.size() <= 0 && enemies.size() <= 0) {
-        global.map.waves[currentWave].reward;
-        currentWave++;
-        toSpawn = global.map.waves[currentWave].enemies;
-    }
-
     spawnAccumulator += GetFrameTime();
     if(spawnAccumulator >= global.map.waves[currentWave].spawnInterval && toSpawn.size() > 0) {
         spawnAccumulator = 0.0f;
@@ -30,9 +24,19 @@ void EnemyManager::update() {
     for (size_t i = enemies.size(); i-- != 0;) {
         Enemy* enemy = &enemies[i];
         enemy->update();
-        if(global.pathManager->isOutsidePath(enemy->getProgress()) || enemy->getHealth() <= 0.0f) {
+        if(enemy->getHealth() <= 0.0f) {
+            global.money += enemy->getReward();
+            enemies.erase(enemies.begin() + i);
+        }else if(global.pathManager->isOutsidePath(enemy->getProgress())) {
+            global.lives -= enemy->getHealth();
             enemies.erase(enemies.begin() + i);
         }
+    }
+
+    if(toSpawn.size() <= 0 && enemies.size() <= 0) {
+        global.money += global.map.waves[currentWave].reward;
+        currentWave++;
+        toSpawn = global.map.waves[currentWave].enemies;
     }
 }
 

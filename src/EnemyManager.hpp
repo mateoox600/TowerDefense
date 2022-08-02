@@ -10,9 +10,9 @@
 
 class EnemyManager {
 private:
-    int currentWave = -1;
+    int currentWave = 0;
     int lastId = 0;
-    std::vector<int> toSpawn{};
+    std::vector<int> toSpawn = global.map.waves[currentWave].enemies;
     float spawnAccumulator = 0.0f;
     std::vector<Enemy> enemies{};
 
