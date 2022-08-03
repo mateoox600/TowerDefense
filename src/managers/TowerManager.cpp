@@ -1,11 +1,11 @@
 
 #include "TowerManager.hpp"
 
-#include "GameConstants.hpp"
-#include "Global.hpp"
-#include "Enemy.hpp"
-#include "tower/BasicTower.hpp"
-#include "tower/StrongTower.hpp"
+#include "../GameConstants.hpp"
+#include "../Global.hpp"
+#include "../Enemy.hpp"
+#include "../tower/BasicTower.hpp"
+#include "../tower/StrongTower.hpp"
 
 using namespace GameConstants;
 

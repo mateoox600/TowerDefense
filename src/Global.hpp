@@ -1,8 +1,8 @@
 #pragma once
 
-#include "PathManager.hpp"
-#include "EnemyManager.hpp"
-#include "TowerManager.hpp"
+#include "managers/PathManager.hpp"
+#include "managers/EnemyManager.hpp"
+#include "managers/TowerManager.hpp"
 
 enum GameState {
     Playing, Dead

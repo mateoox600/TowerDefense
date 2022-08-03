@@ -1,10 +1,10 @@
 
 #include "EnemyManager.hpp"
 
-#include "GameConstants.hpp"
-#include "Global.hpp"
-#include "enemies/Weak.hpp"
-#include "enemies/Medium.hpp"
+#include "../GameConstants.hpp"
+#include "../Global.hpp"
+#include "../enemies/Weak.hpp"
+#include "../enemies/Medium.hpp"
 
 void EnemyManager::init() {
     toSpawn = GameConstants::map.waves[currentWave].enemies;

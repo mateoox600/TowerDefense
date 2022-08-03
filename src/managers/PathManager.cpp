@@ -1,7 +1,7 @@
 
 #include "PathManager.hpp"
 
-#include "GameConstants.hpp"
+#include "../GameConstants.hpp"
 
 using namespace GameConstants;
 

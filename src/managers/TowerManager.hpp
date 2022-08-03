@@ -1,7 +1,7 @@
 #pragma once
 
 #include "raylib-cpp.hpp"
-#include "Tower.hpp"
+#include "../Tower.hpp"
 #include <vector>
 
 class TowerManager {
